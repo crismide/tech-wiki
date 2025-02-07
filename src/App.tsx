@@ -1,16 +1,19 @@
-import { useState } from 'react'
 import './App.css'
-import Navigation from './components/Navigation'
-import Home from './components/Home';
+import Home from './pages/Home';
+import RoadMap from './pages/RoadMap';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Technology from './pages/Technology';
 
 function App() {
-  const [activeTab, setActiveTab] = useState<string>('home');
 
   return (
-    <div className='font-[roboto]'>
-      <Navigation activeTab={activeTab} setActiveTab={setActiveTab}/>
-      {activeTab == 'home'? <Home/> :<h1>Roadmap</h1>}
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/roadmap" element={<RoadMap />} />
+        <Route path="/:id" element={<Technology />} /> 
+      </Routes>
+    </Router>
     
   );
 }

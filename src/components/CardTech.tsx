@@ -1,8 +1,10 @@
+import { useNavigate } from 'react-router-dom';
 
-const CardTech = ({img,name,state,description}) => {
-    console.log(img)
+const CardTech = ({img,name,id,state,description}) => {
+    const navigate = useNavigate();
+    
     return (
-        <div className="shadow shadow-lg w-[330px] border rounded-3xl border-0 my-4">
+        <div className="shadow shadow-lg w-[330px] border rounded-3xl border-0 my-4" onClick={() => navigate(id)}>
             <div className="h-38 overflow-hidden">
                 <img src={img} alt="" className="border rounded-t-3xl w-full h-full object-cover"/>
             </div>

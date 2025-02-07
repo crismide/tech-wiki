@@ -1,9 +1,11 @@
-import CardTech from "./CardTech"
+import CardTech from "../components/CardTech.tsx"
+import Navigation from "../components/Navigation.tsx"
 import technologies from "../content/techlist.ts"
 
 const Home = () => {
   return (
     <div className="text-center">
+        <Navigation/>
         {/* header */}
         <h1 
           className="text-[64px] font-bold text-blue-900 bg-gradient-to-r from-[#06358c] to-[#f4cc1a] bg-clip-text text-transparent"
@@ -17,6 +19,7 @@ const Home = () => {
             {technologies.map((item) => (
               <CardTech
                 img = {item.img}
+                id = {item.id}
                 name = {item.name}
                 state = {item.state}
                 description = {item.description}
